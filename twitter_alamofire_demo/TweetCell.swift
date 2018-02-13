@@ -10,13 +10,27 @@ import UIKit
 
 class TweetCell: UITableViewCell {
     
-    @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var tweetTime: UILabel!
+    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var replyLabel: UIImageView!
+    @IBOutlet weak var retweetLabel: UIImageView!
+    @IBOutlet weak var favoriteLabel: UIImageView!
+    
+    
     
     var tweet: Tweet! {
-        didSet {
+        didSet{
             tweetTextLabel.text = tweet.text
+            nlabel.text = (tweet.user?.name)!
+            ttime.text = tweet.timeStamp
+            unamelabel.text = tweet.user?.screenName
+            profileImageView.setImageWith((tweet.user?.profileURL)! as URL)
         }
     }
+  
     
     override func awakeFromNib() {
         super.awakeFromNib()
